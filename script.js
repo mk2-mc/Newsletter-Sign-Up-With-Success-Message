@@ -4,6 +4,7 @@ const errorText = document.querySelector(".error-text");
 const stayUpdated = document.querySelector(".stay-updated");
 const thanks = document.querySelector(".thanks");
 const dismissButton = document.querySelector(".dismiss");
+const emailValue = document.querySelector(".email-value");
 
 function validate() {
   const emailFormat = /^\w+([\.-]?\w+)a*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -35,6 +36,8 @@ form.addEventListener("submit", (e) => {
     stayUpdated.classList.add("hidden");
     thanks.classList.remove("hidden");
 
+    const formData = new FormData(e.target);
+    emailValue.innerHTML = formData.get("email-input");
     form.reset();
   }
 });
