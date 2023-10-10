@@ -6,10 +6,10 @@ const thanks = document.querySelector(".thanks");
 const dismissButton = document.querySelector(".dismiss");
 const emailValue = document.querySelector(".email-value");
 
-function validate() {
+function validate(email) {
   const emailFormat = /^\w+([\.-]?\w+)a*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   
-  if (!emailFormat.test(input.value)) {
+  if (!emailFormat.test(email)) {
     input.classList.add("error-input");
     input.focus();
 
@@ -23,21 +23,23 @@ function validate() {
 }
 
 // Input changed
-input.addEventListener("input", () => {
-  input.classList.remove("error-input");
+input.addEventListener("input", (e) => {
+  e.target.classList.remove("error-input");
   errorText.classList.add("hidden");
 });
 
 // Submit form
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const email = formData.get("email-input");
   
-  if (validate()) {
+  if (validate(email)) {
     stayUpdated.classList.add("hidden");
     thanks.classList.remove("hidden");
 
-    const formData = new FormData(e.target);
-    emailValue.innerHTML = formData.get("email-input");
+    emailValue.innerHTML = email;
     form.reset();
   }
 });
