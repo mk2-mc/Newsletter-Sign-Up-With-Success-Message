@@ -65,7 +65,6 @@ body {
   display: grid;
   gap: 0.5rem;
   margin-top: 1.5rem;
-  list-style-type: none;
 }
 
 .list li {
