@@ -186,7 +186,7 @@ body {
 
   .card {
     background-color: var(--clr-neutral-100);
-    border-radius: 2.5rem;    
+    border-radius: 2.25rem;    
   }
 
   .stay-updated {
