@@ -6,10 +6,10 @@ const thanks = document.querySelector(".thanks");
 const dismissButton = document.querySelector(".dismiss");
 const emailValue = document.querySelector(".email-value");
 
-function validate(email) {
+function validate() {
   const emailFormat = /^\w+([\.-]?\w+)a*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   
-  if (!emailFormat.test(email)) {
+  if (!emailFormat.test(input.value)) {
     input.classList.add("error-input");
     input.focus();
 
@@ -32,14 +32,11 @@ input.addEventListener("input", (e) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const formData = new FormData(e.target);
-  const email = formData.get("email-input");
-  
-  if (validate(email)) {
+  if (validate()) {
     stayUpdated.classList.add("hidden");
     thanks.classList.remove("hidden");
 
-    emailValue.innerHTML = email;
+    emailValue.innerHTML = input.value;
     form.reset();
   }
 });
