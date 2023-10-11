@@ -9,7 +9,7 @@
   --clr-neutral-700: hsl(235, 18%, 26%);
   --clr-neutral-800: hsl(234, 29%, 20%);
   
-  --clr-neutral-400-alpha: hsla(231, 7%, 60%, 50%);
+  --clr-neutral-400-alpha: hsl(231, 7%, 60%, 50%);
 
   --ff-base: 'Roboto', sans-serif;
 }
